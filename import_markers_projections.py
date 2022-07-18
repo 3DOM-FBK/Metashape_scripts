@@ -1,8 +1,10 @@
 import PhotoScan
 #import Metashape
 
+print("Importing image projections ...")
+
 chunk = PhotoScan.app.document.chunk
-path = r"G:\3DOM\12_sintetic_dataset\PROCESSING\statue_v0.4.3\Metashape\gcp_images_list.txt"
+path = r"C:\Users\Luscias\Desktop\3DOM\Github_3DOM\Metashape_scripts\rearranged.txt"
 file = open(path, "rt")  # input file
 
 eof = False
@@ -16,8 +18,8 @@ while not eof:
     print(sp_line)
     y = float(sp_line[3])  # y- coordinate of the current projection in pixels
     x = float(sp_line[2])  # x- coordinate of the current projection in pixels
-    path = sp_line[0][:-4]  # camera label
-    marker_name = sp_line[1]  # marker label
+    path = sp_line[1]  # camera label # sp_line[1][:-4]
+    marker_name = sp_line[0]  # marker label
     print(marker_name, path, x, y)
 
     flag = 0
